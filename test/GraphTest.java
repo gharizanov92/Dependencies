@@ -106,7 +106,7 @@ public class GraphTest {
 
     @Test
     public void buildFromFile(){
-        System.out.println("Testing graph from sample.txt..");
+        System.out.println("Testing graph from simpleGraph.txt..");
 
         final String expectedResult = "A B\n";
 
@@ -115,6 +115,8 @@ public class GraphTest {
             List<String> result = graph.buildFullDependencySet();
 
             String resultString = buildStringFromDependencyList(result);
+
+            System.out.println(resultString);
 
             assertTrue(graph.hasDependency("A", "B"));
             assertEquals(expectedResult, resultString);
@@ -156,7 +158,7 @@ public class GraphTest {
 
     @Test
     public void runInverseExample(){
-        System.out.println("Testing graph from example.txt..");
+        System.out.println("Testing inverse graph from example.txt..");
 
         final String expectedResult = "" +
                 "A D\n" +
