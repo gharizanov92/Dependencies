@@ -116,6 +116,7 @@ public class GraphTest {
 
             String resultString = buildStringFromDependencyList(result);
 
+            assertTrue(graph.hasDependency("A", "B"));
             assertEquals(expectedResult, resultString);
 
         } catch (Exception ex){

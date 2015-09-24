@@ -1,1 +1,8 @@
 /.idea/workspace.xml
+/out/production/Dependencies/graph/CyclicGraphException.class
+/out/production/Dependencies/graph/DependencyGraph$Node.class
+/out/production/Dependencies/graph/DependencyGraph.class
+/out/production/Dependencies/graph/DependencyGraphFactory.class
+/out/test/Dependencies/GraphTest.class
+/out/test/Dependencies/data/example.txt
+/out/test/Dependencies/data/simpleGraph.txt

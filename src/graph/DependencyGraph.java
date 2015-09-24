@@ -73,6 +73,7 @@ public class DependencyGraph {
             for (String dependencyLabel : nodeDependenciesLabels) {
                 removeDependency(dependency.label, dependencyLabel);
             }
+            throw ex;
         }
     }
 
@@ -221,6 +222,7 @@ public class DependencyGraph {
 
         public Node() {
             label = "";
+            //dependencies are unique but order may matter
             dependsOnList = new LinkedHashSet<>();
             dependentUponList = new LinkedHashSet<>();
         }
