@@ -106,12 +106,14 @@ public class GraphTest {
 
     @Test
     public void buildFromFile(){
-        System.out.println("Testing graph from simpleGraph.txt..");
+        final String FILENAME = "simpleGraph.txt";
+
+        System.out.printf("Testing graph from %s..", FILENAME);
 
         final String expectedResult = "A B\n";
 
         try{
-            DependencyGraph graph = DependencyGraphFactory.createDependencyGraph(new FileInputStream(CLASSPATH + "\\data\\simpleGraph.txt"));
+            DependencyGraph graph = DependencyGraphFactory.createDependencyGraph(new FileInputStream(CLASSPATH + "\\data\\" + FILENAME));
             List<String> result = graph.buildFullDependencySet();
 
             String resultString = buildStringFromDependencyList(result);
@@ -126,10 +128,32 @@ public class GraphTest {
             fail();
         }
     }
+    @Test
+    public void testBuildFromEmptyFile(){
+        final String FILENAME = "emptyGraph.txt";
+
+        System.out.printf("Testing graph from %s..", FILENAME);
+
+        try{
+            DependencyGraph graph = DependencyGraphFactory.createDependencyGraph(new FileInputStream(CLASSPATH + "\\data\\" + FILENAME));
+            List<String> result = graph.buildFullDependencySet();
+
+            String resultString = buildStringFromDependencyList(result);
+            assertTrue("".equals(resultString));
+
+            System.out.println(resultString);
+
+        } catch (Exception ex){
+            ex.printStackTrace();
+            fail();
+        }
+    }
 
     @Test
     public void runExample(){
-        System.out.println("Testing graph from example.txt..");
+        final String FILENAME = "example.txt";
+
+        System.out.printf("Testing graph from %s..", FILENAME);
 
         final String expectedResult = "" +
                 "A B C E F G H\n" +
@@ -140,7 +164,7 @@ public class GraphTest {
                 "F H\n";
 
         try{
-            DependencyGraph graph = DependencyGraphFactory.createDependencyGraph(new FileInputStream(CLASSPATH + "\\data\\example.txt"));
+            DependencyGraph graph = DependencyGraphFactory.createDependencyGraph(new FileInputStream(CLASSPATH + "\\data\\" + FILENAME));
             List<String> result = graph.buildFullDependencySet();
 
             String actualResult = buildStringFromDependencyList(result);
